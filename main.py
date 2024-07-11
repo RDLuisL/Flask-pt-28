@@ -13,16 +13,17 @@ def home():
     else:
         return "deleted"
 
-@app.route("/ping", methods=['POST'])
+@app.route("/ping", methods=['GET'])
 def pingpong():
     body = request.get_json()
     response = {
-        "mesange": body['nombre'] + "he decidido jugar ping pong"        
+        "mesange": body['nombre'] + " ha decidido jugar ping pong"        
     }
+    return jsonify(response)
 
 @app.route("/saludar/<nombre>", methods=['GET'])
 def saludar(nombre):
     return "Hola! "+ nombre
 
 
-app.run(host= '0.0.0.0')
+app.run(host= '0.0.0.0', debug=True)
