@@ -21,9 +21,13 @@ def pingpong():
     }
     return jsonify(response)
 
+# Rutas dinámicas, rutas con argumentos
+# <> significa que es un parámetro
 @app.route("/saludar/<nombre>", methods=['GET'])
 def saludar(nombre):
     return "Hola! "+ nombre
 
-
+if __name__ == '__main__':
 app.run(host= '0.0.0.0', debug=True)
+
+
